@@ -1,5 +1,4 @@
 /*
- * TURN Server - RFC5766 TURN Server implementation
  * Copyright (C) 2011, 2012, 2013 Citrix Systems
  *
  * All rights reserved.
@@ -29,3 +28,40 @@
  * SUCH DAMAGE.
  */
 
+#ifndef __HIREDIS_LIBEVENT_H__
+
+#define __HIREDIS_LIBEVENT_H__
+
+#include <event2/event.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+//////////////////////////////////////
+
+#define DEFAULT_REDIS_PORT (6379)
+
+typedef void* redis_context_handle;
+
+//////////////////////////////////////
+
+#if !defined(TURN_NO_HIREDIS)
+
+void redis_async_init(void);
+
+redis_context_handle redisLibeventAttach(struct event_base *base, char *ip, int port, char *pwd, int db);
+
+void send_message_to_redis(redis_context_handle rch, const char *command, const char *key, const char *format,...);
+
+int is_redis_asyncconn_good(redis_context_handle rch);
+
+#endif
+/* TURN_NO_HIREDIS */
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif
+/*__HIREDIS_LIBEVENT_H__*/

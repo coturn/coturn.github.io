@@ -1,5 +1,4 @@
 /*
- * TURN Server - RFC5766 TURN Server implementation
  * Copyright (C) 2011, 2012, 2013 Citrix Systems
  *
  * All rights reserved.
@@ -29,3 +28,49 @@
  * SUCH DAMAGE.
  */
 
+#ifndef __UDP_SERVER__
+#define __UDP_SERVER__
+
+//////////////////////////////
+
+#include "ns_turn_utils.h"
+
+#include <event2/event.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+//////////////////////////////
+
+struct server_info;
+typedef struct server_info server_type;
+
+///////////////////////////////////////////////////
+
+#define FUNCSTART if(server && server->verbose) turn_log_func_default(TURN_LOG_LEVEL_INFO,"%s:%d:start\n",__FUNCTION__,__LINE__)
+#define FUNCEND if(server && server->verbose) turn_log_func_default(TURN_LOG_LEVEL_INFO,"%s:%d:end\n",__FUNCTION__,__LINE__)
+
+///////////////////////////////////////////////////////
+
+struct server_info {
+  char ifname[1025];
+  struct event_base* event_base;
+  int verbose;
+};
+
+//////////////////////////////
+
+server_type* start_udp_server(int verbose, const char* ifname, char **local_addresses, size_t las, int port);
+
+void run_udp_server(server_type* server);
+
+void clean_udp_server(server_type* server);
+
+///////////////////////////////////////////
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif //__UDP_SERVER__

@@ -1,6 +1,6 @@
 /*
- * TURN Server - RFC5766 TURN Server implementation
  * Copyright (C) 2011, 2012, 2013 Citrix Systems
+ * Copyright (C) 2014 Vivocha S.p.A.
  *
  * All rights reserved.
  *
@@ -28,4 +28,22 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  */
+
+#ifndef __DBD_MONGODB__
+#define __DBD_MONGODB__
+
+#include "dbdriver.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+const turn_dbdriver_t * get_mongo_dbdriver(void);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif
+/// __DBD_MONGODB__///
 

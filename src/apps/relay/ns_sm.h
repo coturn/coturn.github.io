@@ -1,6 +1,5 @@
 /*
- * TURN Server - RFC5766 TURN Server implementation
- * Copyright (C) 2011, 2012, 2013 Citrix Systems
+ * Copyright (C) 2011, 2012, 2013, 2014 Citrix Systems
  *
  * All rights reserved.
  *
@@ -29,3 +28,39 @@
  * SUCH DAMAGE.
  */
 
+/*
+ * IO Abstraction library
+ */
+
+#ifndef __IOA_SM__
+#define __IOA_SM__
+
+#include "ns_turn_ioalib.h"
+
+#include <pthread.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+//////////////////////////////////////////////////////
+
+struct _super_memory;
+typedef struct _super_memory super_memory_t;
+
+//////////////////////////////////////////////////////
+
+void init_super_memory(void);
+
+super_memory_t* new_super_memory_region(void);
+
+#define allocate_super_memory_region(region,size) allocate_super_memory_region_func(region, size, __FILE__, __FUNCTION__, __LINE__)
+void* allocate_super_memory_region_func(super_memory_t *region, size_t size, const char* file, const char* func, int line);
+
+/////////////////////////////////////////////////
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __IOA_SM__ */

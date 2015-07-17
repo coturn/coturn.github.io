@@ -1,5 +1,4 @@
 /*
- * TURN Server - RFC5766 TURN Server implementation
  * Copyright (C) 2011, 2012, 2013 Citrix Systems
  *
  * All rights reserved.
@@ -29,3 +28,54 @@
  * SUCH DAMAGE.
  */
 
+#ifndef __TURN_RTCP_MAP__
+#define __TURN_RTCP_MAP__
+
+#include "ns_turn_maps.h"
+#include "ns_turn_ioalib.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+//////////////// RTCP MAP //////////////////
+
+typedef ur_map_key_type rtcp_token_type;
+
+struct _rtcp_map;
+typedef struct _rtcp_map rtcp_map;
+
+////////////////////////////////////////////////
+
+rtcp_map* rtcp_map_create(ioa_engine_handle e);
+
+/**
+ * @ret:
+ * 0 - success
+ * -1 - error
+ */
+int rtcp_map_put(rtcp_map* map, rtcp_token_type key, ioa_socket_handle s);
+
+/**
+ * @ret:
+ * >=0 - success
+ * <0 - not found
+ */
+ioa_socket_handle rtcp_map_get(rtcp_map* map, rtcp_token_type token, u08bits *realm);
+
+/**
+ * @ret:
+ * 1 - success
+ * 0 - not found
+ */
+void rtcp_map_free(rtcp_map** map);
+
+size_t rtcp_map_size(const rtcp_map* map);
+
+////////////////////////////////////////////
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif //__TURN_RTCP_MAP__

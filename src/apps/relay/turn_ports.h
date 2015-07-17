@@ -1,5 +1,4 @@
 /*
- * TURN Server - RFC5766 TURN Server implementation
  * Copyright (C) 2011, 2012, 2013 Citrix Systems
  *
  * All rights reserved.
@@ -29,3 +28,46 @@
  * SUCH DAMAGE.
  */
 
+#ifndef __TURN_PORTS__
+#define __TURN_PORTS__
+
+#include "ns_turn_ioaddr.h"
+
+#include "ns_sm.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+//////////////////////////////////////////////////
+
+#define LOW_DEFAULT_PORTS_BOUNDARY (49152)
+#define HIGH_DEFAULT_PORTS_BOUNDARY (65535)
+
+//////////////////////////////////////////////////
+
+struct _turnipports;
+typedef struct _turnipports turnipports;
+
+//////////////////////////////////////////////////
+
+turnipports* turnipports_create(super_memory_t *sm, u16bits start, u16bits end);
+
+void turnipports_add_ip(u08bits transport, const ioa_addr *backend_addr);
+
+int turnipports_allocate(turnipports* tp, u08bits transport, const ioa_addr *backend_addr);
+int turnipports_allocate_even(turnipports* tp, const ioa_addr *backend_addr, 
+			      int allocate_rtcp, u64bits *reservation_token);
+
+void turnipports_release(turnipports* tp, u08bits transport, const ioa_addr *socket_addr);
+
+int turnipports_is_allocated(turnipports* tp, u08bits transport, const ioa_addr *backend_addr, u16bits port);
+int turnipports_is_available(turnipports* tp, u08bits transport, const ioa_addr *backend_addr, u16bits port);
+
+//////////////////////////////////////////////////
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif //__TURN_PORTS__

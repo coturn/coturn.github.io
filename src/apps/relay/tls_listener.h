@@ -1,5 +1,4 @@
 /*
- * TURN Server - RFC5766 TURN Server implementation
  * Copyright (C) 2011, 2012, 2013 Citrix Systems
  *
  * All rights reserved.
@@ -29,3 +28,36 @@
  * SUCH DAMAGE.
  */
 
+#ifndef __TLS_LISTENER__
+#define __TLS_LISTENER__
+
+#include <event2/event.h>
+
+#include "ns_turn_utils.h"
+
+#include "ns_ioalib_impl.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+///////////////////////////////////////////
+
+struct tls_listener_relay_server_info;
+typedef struct tls_listener_relay_server_info tls_listener_relay_server_type;
+
+///////////////////////////////////////////
+
+tls_listener_relay_server_type* create_tls_listener_server(const char* ifname,
+				const char *local_address, int port, int verbose,
+				ioa_engine_handle e,
+				ioa_engine_new_connection_event_handler send_socket,
+				struct relay_server *relay_server);
+
+///////////////////////////////////////////
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif //__TLS_LISTENER__
