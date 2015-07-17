@@ -1,18 +1,19 @@
 This is Coturn TURN Server development repository
 =================================================
 
- Read the README files for more information:
+ Follow the links for the project information:
 -------------------------------------------------
 
-[Turn Server](blob/master/README.turnserver)
+[Downloads: source tarball and the platform builds, for the latest version 4.4.5.3](http://turnserver.open-sys.org/downloads/v4.4.5.3/)
 
-[Turn Admin Tool](blob/master/README.turnadmin)
+[Turn Server](README.turnserver)
 
-[Turn Utilities](blob/master/README.turnutils)
+[Turn Admin Tool](README.turnadmin)
+
+[Turn Utilities](README.turnutils)
 
 [Legacy Coturn site](https://code.google.com/p/coturn/)
 
 [Legacy Coturn wiki pages](https://code.google.com/p/coturn/w/list)
-
 
 
