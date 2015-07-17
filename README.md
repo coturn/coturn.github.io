@@ -1,6 +1,9 @@
 This is Coturn TURN Server development repository
 =================================================
-
+Under construction:
+-------------------
+We are transitioning from the legacy Google Code site to Github
+---------------------------------------------------------------
  Follow the links for the project information:
 -------------------------------------------------
 
