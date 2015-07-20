@@ -7,11 +7,7 @@ This is Coturn TURN Server development repository
 
 [Downloads](https://github.com/coturn/coturn/wiki/Downloads)
 
-[Turn Server](README.turnserver)
-
-[Turn Admin Tool](README.turnadmin)
-
-[Turn Utilities](README.turnutils)
+[Wiki](https://github.com/coturn/coturn/wiki/Downloads)
 
 [Legacy Coturn site](https://code.google.com/p/coturn/)
 
