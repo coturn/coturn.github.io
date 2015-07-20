@@ -1,13 +1,11 @@
 This is Coturn TURN Server development repository
 =================================================
-Under construction:
--------------------
-We are transitioning from the legacy Google Code site to Github
----------------------------------------------------------------
  Follow the links for the project information:
 -------------------------------------------------
 
-[Downloads: source tarball and the platform builds, for the latest version 4.4.5.3](http://turnserver.open-sys.org/downloads/v4.4.5.3/)
+[Development site](https://github.com/coturn/coturn/)
+
+[Downloads](https://github.com/coturn/coturn/wiki/Downloads)
 
 [Turn Server](README.turnserver)
 
