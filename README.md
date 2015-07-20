@@ -7,7 +7,7 @@ This is Coturn TURN Server development repository
 
 [Downloads](https://github.com/coturn/coturn/wiki/Downloads)
 
-[Wiki](https://github.com/coturn/coturn/wiki/Downloads)
+[Wiki pages](https://github.com/coturn/coturn/wiki/)
 
 [Legacy Coturn site](https://code.google.com/p/coturn/)
 
